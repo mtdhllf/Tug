@@ -1,0 +1,43 @@
+[package]
+name = "tug-desktop"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "Tug — Windows 多协议下载器"
+
+[lib]
+# `_lib` 后缀用于避免 Windows 上 lib 与 bin 同名冲突。
+name = "tug_desktop_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon"] }
+tauri-plugin-opener = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-notification = "2"
+tauri-plugin-single-instance = "2"
+tauri-plugin-clipboard-manager = "2"
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+notify-rust = "4"
+tug-core = { path = "../../../crates/tug-core" }
+tug-service = { path = "../../../crates/tug-service" }
+
+[target.'cfg(windows)'.dependencies]
+windows = { version = "0.62", features = [
+  "Win32_Foundation",
+  "Win32_Graphics_Dwm",
+  "Win32_System_Com",
+  "Win32_System_DataExchange",
+  "Win32_System_Com_StructuredStorage",
+  "Win32_System_Variant",
+  "Win32_Storage_EnhancedStorage",
+  "Win32_UI_Shell",
+  "Win32_UI_Shell_PropertiesSystem",
+] }
+windows-registry = "0.5"

@@ -1,0 +1,5 @@
+# Tauri/Windows 统一使用 MSVC。显式写 host，避免 rustup 在同时装有 MinGW 的
+# 机器上把 "stable" 解析成 stable-x86_64-pc-windows-gnu。
+[toolchain]
+channel = "stable-x86_64-pc-windows-msvc"
+components = ["rustfmt", "clippy"]

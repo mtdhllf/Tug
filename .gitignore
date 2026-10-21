@@ -1,0 +1,45 @@
+# Rust
+/target/
+**/*.rs.bk
+
+# 本地工具链（便携版 Node/Git、下载缓存）
+/tools/
+/.cache/
+
+# 前端
+node_modules/
+dist/
+apps/desktop/src-tauri/gen/
+
+# 运行时产物
+*.log
+*.pdb
+*.msi
+*.exe
+/artifacts/
+
+# 编辑器
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+docs/env-path-backup-*.txt
+
+# 本地文档、设计稿与手动测试素材（只保留本地，不随仓库发布）
+/docs/
+/tests/
+
+# 本地杂项/敏感目录
+Managepasswords/
+*.local
+*.bak
+*.tmp
+
+# 本地密钥/环境
+.env
+.env.*
+*.pem
+*.key
+desktop.ini

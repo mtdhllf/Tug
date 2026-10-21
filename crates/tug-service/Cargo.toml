@@ -1,0 +1,21 @@
+[package]
+name = "tug-service"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+tug-core = { path = "../tug-core" }
+tug-http = { path = "../tug-http" }
+tug-torrent = { path = "../tug-torrent" }
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
+tokio = { version = "1", features = ["rt", "sync", "time"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full"] }
+axum = "0.8"
+tempfile = "3"
