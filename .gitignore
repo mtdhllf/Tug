@@ -1,22 +1,25 @@
-# Rust
+# 构建缓存
 /target/
+/apps/desktop/src-tauri/target/
+node_modules/
+/apps/desktop/.vite/
+*.tsbuildinfo
+/.cache/
+/tools/
 **/*.rs.bk
 
-# 本地工具链（便携版 Node/Git、下载缓存）
-/tools/
-/.cache/
-
-# 前端
-node_modules/
-dist/
-apps/desktop/src-tauri/gen/
+# 构建/打包输出
+/artifacts/
+/apps/desktop/dist/
+/apps/desktop/src-tauri/gen/
+/coverage/
+/.turbo/
 
 # 运行时产物
 *.log
 *.pdb
 *.msi
 *.exe
-/artifacts/
 
 # 编辑器
 .vscode/*
