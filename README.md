@@ -4,6 +4,13 @@ Windows 桌面下载器，支持 HTTP/HTTPS、BitTorrent 与磁力链接，多�
 
 当前版本：**v1.0.0**
 
+## 下载
+
+- [GitHub Releases](https://github.com/mtdhllf/Tug/releases/latest)
+- [安装器 Tug-1.0.0-x64-setup.exe](https://github.com/mtdhllf/Tug/releases/download/v1.0.0/Tug-1.0.0-x64-setup.exe)
+- [便携版 Tug-1.0.0-portable.zip](https://github.com/mtdhllf/Tug/releases/download/v1.0.0/Tug-1.0.0-portable.zip)
+- [SHA-256 校验值](https://github.com/mtdhllf/Tug/releases/download/v1.0.0/SHA256SUMS.txt)
+
 ---
 
 ## 功能
