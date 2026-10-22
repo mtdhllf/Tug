@@ -4,6 +4,7 @@ import { getCurrentWebview } from "@tauri-apps/api/webview";
 import { readText } from "@tauri-apps/plugin-clipboard-manager";
 import { openPath, revealItemInDir } from "@tauri-apps/plugin-opener";
 import { AddTaskDialog } from "./components/AddTaskDialog";
+import { BulkRemoveDialog } from "./components/BulkRemoveDialog";
 import { Overview } from "./components/Overview";
 import { RemoveTaskDialog } from "./components/RemoveTaskDialog";
 import { SettingsPage, type SettingsTab } from "./components/SettingsPage";
@@ -75,6 +76,7 @@ function App() {
   const [addInitialUrl, setAddInitialUrl] = useState<string | null>(null);
   const [settingsTab, setSettingsTab] = useState<SettingsTab>("download");
   const [removeTarget, setRemoveTarget] = useState<TaskView | null>(null);
+  const [bulkRemoveTargets, setBulkRemoveTargets] = useState<TaskView[] | null>(null);
   const [detailsTarget, setDetailsTarget] = useState<TaskView | null>(null);
   const [clipboardUrl, setClipboardUrl] = useState<string | null>(null);
 
@@ -376,13 +378,20 @@ function App() {
     await refreshTasks();
   }
 
-  async function bulkRemove() {
+  function requestBulkRemove() {
     const targets = visibleTasks.filter((task) => selected.has(task.id));
     if (targets.length === 0) return;
-    if (!window.confirm(`删除选中的 ${targets.length} 个任务？磁盘文件不会被删除。`)) return;
+    // 只打开确认弹层；此时绝不能删除或清空列表。
+    setBulkRemoveTargets(targets);
+  }
+
+  async function confirmBulkRemove(deleteFiles: boolean) {
+    const targets = bulkRemoveTargets;
+    if (!targets?.length) return;
     for (const task of targets) {
-      await removeTask(task.id, false).catch(() => undefined);
+      await removeTask(task.id, deleteFiles).catch(() => undefined);
     }
+    setBulkRemoveTargets(null);
     setSelected(new Set());
     await refreshTasks();
   }
@@ -504,7 +513,7 @@ function App() {
               onToggleAll={toggleAll}
               onBulkPause={() => void bulkPause()}
               onBulkResume={() => void bulkResume()}
-              onBulkRemove={() => void bulkRemove()}
+              onBulkRemove={requestBulkRemove}
               onClearSelection={() => setSelected(new Set())}
               onPause={handlePause}
               onResume={handleResume}
@@ -557,6 +566,14 @@ function App() {
       />
 
       {removeTarget && <RemoveTaskDialog task={removeTarget} onClose={() => setRemoveTarget(null)} onConfirm={handleRemove} />}
+
+      {bulkRemoveTargets && (
+        <BulkRemoveDialog
+          tasks={bulkRemoveTargets}
+          onClose={() => setBulkRemoveTargets(null)}
+          onConfirm={confirmBulkRemove}
+        />
+      )}
 
       {detailsTarget && (
         <TorrentDetailsDialog task={tasks.find((task) => task.id === detailsTarget.id) ?? detailsTarget} onClose={() => setDetailsTarget(null)} />

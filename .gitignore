@@ -37,6 +37,7 @@ docs/env-path-backup-*.txt
 
 # 本地杂项/敏感目录
 Managepasswords/
+/apps/android-bak.zip
 *.local
 *.bak
 *.tmp
