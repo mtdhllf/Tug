@@ -1,15 +1,17 @@
-# Tug
+# Tug Desktop
 
 Windows 桌面下载器，支持 HTTP/HTTPS、BitTorrent 与磁力链接，多连接加速、断点续传和任务队列。
 
 当前版本：**v1.0.0**
 
+- Android 版本：[Tug-Android](https://github.com/mtdhllf/Tug-Android)
+
 ## 下载
 
-- [GitHub Releases](https://github.com/mtdhllf/Tug/releases/latest)
-- [安装器 Tug-1.0.0-x64-setup.exe](https://github.com/mtdhllf/Tug/releases/download/v1.0.0/Tug-1.0.0-x64-setup.exe)
-- [便携版 Tug-1.0.0-portable.zip](https://github.com/mtdhllf/Tug/releases/download/v1.0.0/Tug-1.0.0-portable.zip)
-- [SHA-256 校验值](https://github.com/mtdhllf/Tug/releases/download/v1.0.0/SHA256SUMS.txt)
+- [GitHub Releases](https://github.com/mtdhllf/Tug-Desktop/releases/latest)
+- [安装器 Tug-1.0.0-x64-setup.exe](https://github.com/mtdhllf/Tug-Desktop/releases/download/v1.0.0/Tug-1.0.0-x64-setup.exe)
+- [便携版 Tug-1.0.0-portable.zip](https://github.com/mtdhllf/Tug-Desktop/releases/download/v1.0.0/Tug-1.0.0-portable.zip)
+- [SHA-256 校验值](https://github.com/mtdhllf/Tug-Desktop/releases/download/v1.0.0/SHA256SUMS.txt)
 
 ---
 

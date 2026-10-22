@@ -1,6 +1,7 @@
 # 构建缓存
 /target/
 /apps/desktop/src-tauri/target/
+/apps/android/
 node_modules/
 /apps/desktop/.vite/
 *.tsbuildinfo
@@ -46,3 +47,6 @@ Managepasswords/
 *.pem
 *.key
 desktop.ini
+
+# Android 独立仓库（Tug-Android）
+/apps/android-bak.zip/
